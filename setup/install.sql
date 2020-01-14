@@ -123,7 +123,7 @@ AS SELECT [word].[Value] [Word], [character].[Value] [Character], [wordStatistic
 GO
 
 CREATE PROC [dbo].[GetWordStatistics]
-	 @word VARCHAR(MAX)
+	  @word VARCHAR(MAX)
 	 ,@bulk_insert BIT = 0
 AS
 BEGIN
