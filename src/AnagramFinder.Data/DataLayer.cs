@@ -3,10 +3,11 @@ using Dapper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Data.Common;
+using Anagram.Contracts;
 
 namespace AnagramFinder.Data
 {
-    public class DataAccess
+    public class DataAccess : IDataAccess
     {
         public DataAccess(SqlClientFactory sQLClientFactory, string connectionString)
         {
