@@ -11,6 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnagramFinder.Services", "A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnagramFinder.WebApi", "AnagramFinder.WebApi\AnagramFinder.WebApi.csproj", "{82D8467A-B14E-4A80-9CB7-E3A17341280A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{653DE023-6E40-4639-A945-266575319B7A}"
+	ProjectSection(SolutionItems) = preProject
+		..\setup\install.sql = ..\setup\install.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
