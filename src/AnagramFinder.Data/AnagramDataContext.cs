@@ -19,7 +19,8 @@ namespace AnagramFinder.Data
 
         public async Task<IEnumerable<AnagramMatch>> GetAnagramMatches(string word)
         {
-            throw new NotImplementedException();
+            return await dataLayer.GetData<AnagramMatch>("EXEC [dbo].[FindMatchngAnagrams] @word = @word", 
+                new KeyValuePair<string, object>("word", word));
         }
     }
 }

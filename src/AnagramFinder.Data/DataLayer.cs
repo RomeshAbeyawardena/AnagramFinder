@@ -9,10 +9,10 @@ namespace AnagramFinder.Data
 {
     public class DataAccess : IDataAccess
     {
-        public DataAccess(SqlClientFactory sQLClientFactory, string connectionString)
+        public DataAccess(SqlClientFactory sQLClientFactory, IApplicationSettings applicationSettings)
         {
             Connection = sQLClientFactory.CreateConnection();
-            Connection.ConnectionString = connectionString;
+            Connection.ConnectionString = applicationSettings.ConnectionString;
         }
 
         private IDictionary<string, object> AsDictionary(params KeyValuePair<string, object>[] commandParameters)
