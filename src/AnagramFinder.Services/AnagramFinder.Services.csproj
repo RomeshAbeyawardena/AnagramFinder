@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -6,10 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="DotNetInsights.Shared.Contracts" Version="1.0.1.2" />
+    <PackageReference Include="MediatR" Version="8.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Anagram.Contracts\Anagram.Contracts.csproj" />
+    <ProjectReference Include="..\AnagramFinder.Contracts\AnagramFinder.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

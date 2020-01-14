@@ -1,4 +1,4 @@
-﻿using Anagram.Contracts;
+﻿using AnagramFinder.Contracts;
 using AnagramFinder.Domains.Data;
 using System;
 using System.Collections.Generic;

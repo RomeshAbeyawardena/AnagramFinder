@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Anagram.Contracts
+namespace AnagramFinder.Contracts
 {
-    public interface IDataLayer : IAsyncDisposable
+    public interface IDataAccess : IAsyncDisposable
     {
-        IDictionary<string, object> AsDictionary(params KeyValuePair<string, object>[] commandParameters);
         Task<IEnumerable<TResult>> GetData<TResult>(string command, params KeyValuePair<string, object>[] commandParameters);
         Task<int> Execute(string command, params KeyValuePair<string, object>[] commandParameters);
         DbConnection Connection { get; }

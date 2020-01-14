@@ -4,4 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="DotNetInsights.Shared.Services" Version="1.0.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AnagramFinder.Broker\AnagramFinder.Broker.csproj" />
+  </ItemGroup>
+
 </Project>

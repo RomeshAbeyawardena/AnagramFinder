@@ -9,6 +9,6 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="1.1.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Anagram.Contracts\Anagram.Contracts.csproj" />
+    <ProjectReference Include="..\AnagramFinder.Contracts\AnagramFinder.Contracts.csproj" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿using Anagram.Contracts;
+﻿using AnagramFinder.Contracts;
 using DotNetInsights.Shared.Contracts;
 using Microsoft.Extensions.DependencyInjection;
 using System;

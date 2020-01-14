@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Anagram.Contracts
+namespace AnagramFinder.Contracts
 {
     public interface IApplicationSettings
     {

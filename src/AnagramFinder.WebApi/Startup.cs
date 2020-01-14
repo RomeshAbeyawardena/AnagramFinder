@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MediatR.Registration;
 using MediatR;
+using AnagramFinder.Broker;
 
 namespace AnagramFinder.WebApi
 {
@@ -18,7 +19,7 @@ namespace AnagramFinder.WebApi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMediatR();
+            services.AddMediatR(ServiceBroker.DefaultAssembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

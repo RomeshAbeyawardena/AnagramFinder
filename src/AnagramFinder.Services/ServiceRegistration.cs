@@ -1,6 +1,8 @@
-﻿using Anagram.Contracts.Services;
+﻿using AnagramFinder.Contracts.Services;
 using DotNetInsights.Shared.Contracts;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace AnagramFinder.Services
 {
@@ -8,7 +10,9 @@ namespace AnagramFinder.Services
     {
         public void RegisterServices(IServiceCollection services)
         {
-            services.AddTransient<IAnagramService, AnagramService>();
+            services
+                .AddMediatR(Assembly.GetAssembly(typeof(ServiceRegistration)))
+                .AddTransient<IAnagramService, AnagramService>();
         }
     }
 }

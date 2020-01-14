@@ -1,5 +1,5 @@
-﻿using Anagram.Contracts;
-using Anagram.Contracts.Services;
+﻿using AnagramFinder.Contracts;
+using AnagramFinder.Contracts.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;

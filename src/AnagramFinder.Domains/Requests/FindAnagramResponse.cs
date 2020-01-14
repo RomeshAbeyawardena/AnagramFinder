@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Anagram.Contracts.Services
+namespace AnagramFinder.Domains.Requests
 {
-    public interface IAnagramService
+    public class FindAnagramResponse
     {
-        Task<IEnumerable<string>> FindAnagrams(string word);
+        
     }
 }

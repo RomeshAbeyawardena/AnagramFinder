@@ -3,7 +3,7 @@ using Dapper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Data.Common;
-using Anagram.Contracts;
+using AnagramFinder.Contracts;
 
 namespace AnagramFinder.Data
 {
