@@ -15,6 +15,8 @@ namespace AnagramFinder.Services
         {
             services
                 .AddSingleton<ApplicationSettings>()
+                .AddSingleton<IJsonService, JsonService>()
+                .AddSingleton<IHttpRequestService, HttpRequestService>()
                 .AddTransient<FluentValidation.IValidator<FindAnagramRequest>, FindAnagramValidator>()
                 .AddTransient<IMediatorService, MediatorService>()
                 .AddMediatR(Assembly.GetAssembly(typeof(ServiceRegistration)))
