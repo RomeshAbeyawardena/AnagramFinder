@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using System;
 
 namespace AnagramFinder.Domains
 {
@@ -12,5 +13,6 @@ namespace AnagramFinder.Domains
         }
 
         public string ConnectionString { get; set; }
+        public Uri AnangramFinderUrl { get; set; }
     }
 }
