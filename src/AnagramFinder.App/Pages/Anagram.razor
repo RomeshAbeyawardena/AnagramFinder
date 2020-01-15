@@ -1,0 +1,16 @@
+﻿@inherits AnagramHelper
+@page "/anagram"
+
+<label for="anagramWordSearch">Word: </label>
+<input @bind-value="Word" id="anagramWordSearch"  type="text" />
+<button @onclick="FindAnagrams">Find Anagrams</button>
+@if(Response != null)
+{ 
+    <h3>Anagram searches (@Response?.AnagramMatches.Count()):</h3>
+    <ul>
+        @foreach (var anagramMatch in Response?.AnagramMatches)
+        {
+            <li>@anagramMatch.Word</li>
+        }
+    </ul>
+}
