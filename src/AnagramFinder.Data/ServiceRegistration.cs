@@ -1,11 +1,7 @@
 ﻿using AnagramFinder.Contracts;
 using DotNetInsights.Shared.Contracts;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnagramFinder.Data
 {
@@ -14,8 +10,9 @@ namespace AnagramFinder.Data
         public void RegisterServices(IServiceCollection services)
         {
             services
+                .AddSingleton(SqlClientFactory.Instance)
                 .AddTransient<IAnagramDataContext, AnagramDataContext>()
-                .AddTransient<IDataAccess, DataAccess>();
+                .AddTransient<IDataLayer, DataAccess>();
         }
     }
 }

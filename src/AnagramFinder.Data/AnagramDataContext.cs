@@ -1,9 +1,7 @@
 ﻿using AnagramFinder.Contracts;
 using AnagramFinder.Domains.Data;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AnagramFinder.Data
@@ -17,9 +15,9 @@ namespace AnagramFinder.Data
             this.dataLayer = dataLayer;
         }
 
-        public async Task<IEnumerable<AnagramMatch>> GetAnagramMatches(string word)
+        public async Task<IEnumerable<AnagramMatch>> GetAnagramMatches(string word, CancellationToken cancellationToken = default)
         {
-            return await dataLayer.GetData<AnagramMatch>("EXEC [dbo].[FindMatchngAnagrams] @word = @word", 
+            return await dataLayer.GetData<AnagramMatch>("EXEC [dbo].[FindMatchngAnagrams] @word = @word", cancellationToken,
                 new KeyValuePair<string, object>("word", word));
         }
     }

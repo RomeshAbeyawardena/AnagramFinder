@@ -4,28 +4,30 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Data.Common;
 using AnagramFinder.Contracts;
+using AnagramFinder.Domains;
+using System.Threading;
 
 namespace AnagramFinder.Data
 {
-    public class DataAccess : IDataAccess
+    public class DataAccess : IDataLayer
     {
-        public DataAccess(SqlClientFactory sQLClientFactory, IApplicationSettings applicationSettings)
+        public DataAccess(SqlClientFactory sQLClientFactory, ApplicationSettings applicationSettings)
         {
             Connection = sQLClientFactory.CreateConnection();
             Connection.ConnectionString = applicationSettings.ConnectionString;
         }
 
-        private IDictionary<string, object> AsDictionary(params KeyValuePair<string, object>[] commandParameters)
+        public IDictionary<string, object> AsDictionary(params KeyValuePair<string, object>[] commandParameters)
         {
             return new Dictionary<string, object>(commandParameters);
         }
 
-        public async Task<IEnumerable<TResult>> GetData<TResult>(string command, params KeyValuePair<string, object>[] commandParameters)
+        public async Task<IEnumerable<TResult>> GetData<TResult>(string command, CancellationToken cancellationToken = default, params KeyValuePair<string, object>[] commandParameters)
         {
             return await SqlMapper.QueryAsync<TResult>(Connection, command, AsDictionary(commandParameters));
         }
 
-        public async Task<int> Execute(string command, params KeyValuePair<string, object>[] commandParameters)
+        public async Task<int> Execute(string command, CancellationToken cancellationToken = default, params KeyValuePair<string, object>[] commandParameters)
         {
             return await SqlMapper.ExecuteAsync(Connection, command, AsDictionary(commandParameters));
         }

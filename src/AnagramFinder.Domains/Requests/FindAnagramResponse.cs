@@ -1,13 +1,10 @@
-﻿using System;
+﻿using AnagramFinder.Domains.Data;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnagramFinder.Domains.Requests
 {
     public class FindAnagramResponse
     {
-        
+        public IEnumerable<AnagramMatch> AnagramMatches { get; set; }
     }
 }

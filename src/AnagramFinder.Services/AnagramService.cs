@@ -1,9 +1,8 @@
 ﻿using AnagramFinder.Contracts;
 using AnagramFinder.Contracts.Services;
-using System;
+using AnagramFinder.Domains.Data;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AnagramFinder.Services
@@ -12,20 +11,16 @@ namespace AnagramFinder.Services
     {
         private readonly IAnagramDataContext anagramDataContext;
 
-
-
         public AnagramService(IAnagramDataContext anagramDataContext)
         {
             this.anagramDataContext = anagramDataContext;
         }
 
-        public async Task<IEnumerable<string>> FindAnagrams(string word)
+        public async Task<IEnumerable<AnagramMatch>> FindAnagrams(string word, CancellationToken cancellationToken = default)
         {
-            var result = await anagramDataContext.GetAnagramMatches(word);
+            var result = await anagramDataContext.GetAnagramMatches(word, cancellationToken);
 
-            return result
-                .Select(anagramMatch => anagramMatch.Word)
-                .ToArray();
+            return result;
         }
     }
 }

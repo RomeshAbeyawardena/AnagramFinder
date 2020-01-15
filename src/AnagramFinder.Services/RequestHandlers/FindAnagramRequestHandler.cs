@@ -1,10 +1,6 @@
 ﻿using AnagramFinder.Contracts.Services;
 using AnagramFinder.Domains.Requests;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,16 +8,16 @@ namespace AnagramFinder.Services.RequestHandlers
 {
     public class FindAnagramRequestHandler : IRequestHandler<FindAnagramRequest, FindAnagramResponse>
     {
-        private readonly IAnagramService anagramService;
+        private readonly IAnagramService _anagramService;
 
-        public Task<FindAnagramResponse> Handle(FindAnagramRequest request, CancellationToken cancellationToken)
+        public async Task<FindAnagramResponse> Handle(FindAnagramRequest request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return new FindAnagramResponse { AnagramMatches = await _anagramService.FindAnagrams(request.Word, cancellationToken) };
         }
 
         public FindAnagramRequestHandler(IAnagramService anagramService)
         {
-            this.anagramService = anagramService;
+            _anagramService = anagramService;
         }
     }
 }
