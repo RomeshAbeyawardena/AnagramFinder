@@ -7,6 +7,7 @@ using AnagramFinder.Domains.Requests;
 
 namespace AnagramFinder.WebApi.Controllers
 {
+    [Route("{controller}/{action}")]
     public class AnagramController : ControllerBase
     {
         private readonly IMediatorService _mediatorService;
@@ -16,7 +17,8 @@ namespace AnagramFinder.WebApi.Controllers
             _mediatorService = mediatorService;
         }
 
-        public async Task<ActionResult> FindAnagrams(FindAnagramsViewModel findAnagramsViewModel)
+        [HttpGet]
+        public async Task<ActionResult> FindAnagrams([FromQuery] FindAnagramsViewModel findAnagramsViewModel)
         {
             var findAnagramRequest = Map<FindAnagramsViewModel,FindAnagramRequest>(findAnagramsViewModel);
             return Ok(await _mediatorService.Send<FindAnagramRequest, FindAnagramResponse>(findAnagramRequest));

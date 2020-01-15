@@ -13,6 +13,7 @@ namespace AnagramFinder.Services
         {
             services
                 .AddSingleton<ApplicationSettings>()
+                .AddTransient<IMediatorService, MediatorService>()
                 .AddMediatR(Assembly.GetAssembly(typeof(ServiceRegistration)))
                 .AddTransient<IAnagramService, AnagramService>();
         }

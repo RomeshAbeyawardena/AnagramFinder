@@ -17,6 +17,9 @@ namespace AnagramFinder.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services
+                .AddControllers();
+
+            services
                 .AddAutoMapper(Assembly.GetAssembly(typeof(DomainProfile)))
                 .RegisterServiceBroker<ServiceBroker>();
         }
