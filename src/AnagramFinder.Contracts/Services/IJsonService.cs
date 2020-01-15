@@ -9,6 +9,6 @@ namespace AnagramFinder.Contracts.Services
 {
     public interface IJsonService
     {
-        Task<TOutput> ConvertFromJsonStream<TOutput>(Stream stream);
+        TOutput ConvertFromJsonStream<TOutput>(Stream stream);
     }
 }
