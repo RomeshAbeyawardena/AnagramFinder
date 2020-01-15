@@ -2,6 +2,7 @@
 using AnagramFinder.Domains;
 using AnagramFinder.Domains.Requests;
 using AnagramFinder.Services.Validators;
+using AutoMapper;
 using DotNetInsights.Shared.Contracts;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +22,8 @@ namespace AnagramFinder.Services
                 .AddTransient<IMediatorService, MediatorService>()
                 .AddMediatR(Assembly.GetAssembly(typeof(ServiceRegistration)))
                 .AddTransient<IAnagramService, AnagramService>();
+
+            services.AddAutoMapper(Assembly.GetAssembly(typeof(DomainProfile)));
         }
     }
 }

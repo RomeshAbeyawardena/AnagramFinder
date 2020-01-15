@@ -2,6 +2,6 @@
 {
     public class AnagramMatch
     {
-        public string Word { get; }
+        public string Word { get; set; }
     }
 }

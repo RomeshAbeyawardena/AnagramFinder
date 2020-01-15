@@ -20,7 +20,6 @@ namespace AnagramFinder.WebApi
                 .AddControllers();
 
             services
-                .AddAutoMapper(Assembly.GetAssembly(typeof(DomainProfile)))
                 .RegisterServiceBroker<ServiceBroker>();
         }
 

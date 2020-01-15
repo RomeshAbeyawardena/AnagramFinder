@@ -5,6 +5,6 @@ namespace AnagramFinder.Contracts.Services
 {
     public interface IHttpRequestService
     {
-        Uri GenerateQueryString(Uri baseUrl, params KeyValuePair<string,  object>[] parameters);
+        string GenerateUrlWithQueryString(string baseUrl, params KeyValuePair<string, object>[] parameters);
     }
 }
