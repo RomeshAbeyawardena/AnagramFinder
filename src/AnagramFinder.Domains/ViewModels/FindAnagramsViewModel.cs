@@ -7,6 +7,8 @@ namespace AnagramFinder.Domains.ViewModels
     public class FindAnagramsViewModel
     {
         [Required]
+        [MinLength(3)]
+        [MaxLength(1400)]
         public string Word { get; set; }
     }
 }

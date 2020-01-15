@@ -1,5 +1,7 @@
 ﻿using AnagramFinder.Contracts.Services;
 using AnagramFinder.Domains;
+using AnagramFinder.Domains.Requests;
+using AnagramFinder.Services.Validators;
 using DotNetInsights.Shared.Contracts;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +15,7 @@ namespace AnagramFinder.Services
         {
             services
                 .AddSingleton<ApplicationSettings>()
+                .AddTransient<FluentValidation.IValidator<FindAnagramRequest>, FindAnagramValidator>()
                 .AddTransient<IMediatorService, MediatorService>()
                 .AddMediatR(Assembly.GetAssembly(typeof(ServiceRegistration)))
                 .AddTransient<IAnagramService, AnagramService>();
